@@ -8,11 +8,13 @@ class Account extends Component {
     e.preventDefault();
     console.log(this);
     const amount = parseInt(this.inputBox.value);
-    const newBalance = this.state.balance + amount;
-    this.setState({
-      balance: newBalance
-    })
-    this.inputBox.value = '';
+    if (amount >= 0) {
+      const newBalance = this.state.balance + amount;
+      this.setState({
+        balance: newBalance
+      })
+      this.inputBox.value = '';
+    }
   }
   handleWithdrawal = (e) => {
     e.preventDefault();
